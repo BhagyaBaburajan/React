@@ -9,9 +9,7 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import NewOnePage from  './newOnePage';
-import SideMenu from  '../header/sideMenu';
-import Header from  '../header/header';
+
 var res;
 class Fruitcart extends React.Component {
   constructor(props) {
