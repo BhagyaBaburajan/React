@@ -1,0 +1,370 @@
+
+import React from "react";
+import {  Button, Form,InputGroup } from 'react-bootstrap';
+//import { BrowserRouter, Routes ,Route } from 'react-router-dom';
+//import { Route,Router,Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import NewOnePage from  './newOnePage';
+import SideMenu from  '../header/sideMenu';
+import Header from  '../header/header';
+var res;
+class Fruitcart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      num1: 0,
+      num2: 0,
+      num3: 0,
+      num4: 0,
+      num5: 0,
+      num6: 0,
+      num7: 0,
+      num8: 0,
+      num9: 0,
+      num10: 0,
+      num11: 0,
+      num12: 0,
+      default: 0,item1:'',
+      default2: 0,
+      default3: 0,
+      default4: 0,
+      default5: 0,
+      default6: 0,
+      default7: 0,
+      default8: 0,
+      default9: 0,
+      default10: 0,
+      default11: 0,
+      default12: 0,
+      result: 0
+    };
+    this.apple= this.apple.bind(this);
+    this.Apricot= this.Apricot.bind(this);
+    this.Avocado= this.Avocado.bind(this);
+    this.Banana= this.Banana.bind(this);
+    this.Blackberry= this.Blackberry.bind(this);
+    this.Blueberry= this.Blueberry.bind(this);
+    this.Boysenberry= this.Boysenberry.bind(this);
+    this.Cherry= this.Cherry.bind(this);
+    this.Dragon= this.Dragon.bind(this);
+    this.Grape= this.Grape.bind(this);
+    this.Jackfruit= this.Jackfruit.bind(this);
+    this.Orange= this.Orange.bind(this);
+  }
+  state = {
+    redirect: false,
+    redirect1: false,
+  }
+  renderRedirect = () => {
+    if (this.state.redirect1) {
+    //   return <Redirect to={{pathname:"/newOnePage", 
+    //   state: { name : this.state.result } 
+    // }}
+    //   />
+    // return <Router><Switch><Route exact path="/" component={NewOnePage}/> </Switch></Router>
+   //return (<BrowserRouter><Routes><Route to="./newOnePage" /> </Routes></BrowserRouter>)
+  // return <BrowserRouter><Switch><Route path="/NewOnePage" component={NewOnePage} /></Switch></BrowserRouter>;
+  return <NewOnePage title={this.state.result}/>;
+}
+  }
+ 
+  apple = (e) => {
+    this.setState({ num1: e });
+  }
+ 
+  Cherry = (e) => {
+    this.setState({ num3: e }); 
+  }
+  Apricot = (e) => {
+    this.setState({ num2: e });
+  }
+  Avocado = (e) => {
+    this.setState({ num4: e });
+  }
+  Banana = (e) => {
+    this.setState({ num5: e });
+   // alert(e)
+  }
+  Blackberry = (e) => {
+    this.setState({ num6: e });
+  }
+  Blueberry = (e) => {
+    this.setState({ num7: e });
+  }
+  Boysenberry = (e) => {
+    this.setState({ num8: e });
+  }
+  Dragon = (e) => {
+    this.setState({ num9: e });
+  }
+  Grape = (e) => {
+    this.setState({ num10: e });
+  }
+  Jackfruit = (e) => {
+    this.setState({ num11: e });
+  }
+  Orange = (e) => {
+    this.setState({ num12: e });
+  }
+  addNew = (e) => {
+    this.setState({default: this.state.default+1});
+   }
+   addNew2 = (e) => {
+    this.setState({default2: this.state.default2+1});
+   }
+   addNew3 = (e) => {
+    this.setState({default3: this.state.default3+1});
+   }
+   addNew4 = (e) => {
+    this.setState({default4: this.state.default4+1});
+   }
+   addNew5 = (e) => {
+    this.setState({default5: this.state.default5+1});
+   }
+   addNew6 = (e) => {
+    this.setState({default6: this.state.default6+1});
+   }
+   addNew7 = (e) => {
+    this.setState({default7: this.state.default7+1});
+   }
+   addNew8 = (e) => {
+    this.setState({default8: this.state.default8+1});
+   }
+   addNew9 = (e) => {
+    this.setState({default9: this.state.default9+1});
+   }
+   addNew10 = (e) => {
+    this.setState({default10: this.state.default10+1});
+   }
+   addNew11 = (e) => {
+    this.setState({default11: this.state.default11+1});
+   }
+   addNew12 = (e) => {
+    this.setState({default12: this.state.default12+1});
+   }
+   subNew = (e) => {
+    if((this.state.default>0)){
+     this.setState({default: this.state.default-1});
+    }
+   }
+   
+   subNew2 = (e) => {
+    if((this.state.default2>0)){
+      this.setState({default2: this.state.default2-1});
+    }
+   }
+   subNew3 = (e) => {
+    if((this.state.default3>0)){
+      this.setState({default3: this.state.default3-1});
+    }
+   }
+   subNew4 = (e) => {
+    if((this.state.default4>0)){
+      this.setState({default4: this.state.default4-1});
+    }
+   }
+   subNew5 = (e) => {
+    if((this.state.default5>0)){
+      this.setState({default5: this.state.default5-1});
+    }
+   }
+   subNew6 = (e) => {
+    if((this.state.default6>0)){
+      this.setState({default6: this.state.default6-1});
+    }
+   }
+   subNew7 = (e) => {
+    if((this.state.default7>0)){
+      this.setState({default7: this.state.default7-1});
+    }
+   }
+   subNew8 = (e) => {
+    if((this.state.default8>0)){
+      this.setState({default8: this.state.default8-1});
+    }
+   }
+   subNew9 = (e) => {
+    if((this.state.default9>0)){
+      this.setState({default9: this.state.default9-1});
+    }
+   }
+   subNew10 = (e) => {
+    if((this.state.default10>0)){
+      this.setState({default10: this.state.default10-1});
+    }
+   }
+   subNew11 = (e) => {
+    if((this.state.default11>0)){
+      this.setState({default11: this.state.default11-1});
+    }
+   }
+   subNew12 = (e) => {
+    if((this.state.default12>0)){
+      this.setState({default12: this.state.default12-1});
+    }
+   }
+  addPrice = ( ) => {
+    //alert(this.state.num2+"----------"+this.state.default2)
+    
+    var num1=this.state.num1*this.state.default;
+    var num2=this.state.num2*this.state.default2;
+    var num3=this.state.num4*this.state.default3;
+    var num4=this.state.num5*this.state.default4;
+    var num5=this.state.num6*this.state.default5;
+    var num6=this.state.num7*this.state.default6;
+    var num7=this.state.num8*this.state.default7;
+    var num8=this.state.num3*this.state.default8;
+    var num9=this.state.num9*this.state.default9;
+    var num10=this.state.num10*this.state.default10;
+    var num11=this.state.num11*this.state.default11;
+    var num12=this.state.num12*this.state.default12;
+   //alert("num1="+num1+"num2="+num2+"num3="+num3+"num4="+num4+"num5="+num5+"num6="+num6+"num7="+num7+"num8"+num8)
+    let a=num1+num2+num3+num4+num5+num6+num7+num8+num9+num10+num11+num12;
+    this.setState({result: num1+num2+num3+num4+num5+num6+num7+num8+num9+num10+num11+num12 })
+   // alert(a)
+    var temp;
+    temp=this.state.result;
+    //alert("your price is "+a);
+    this.setState({
+      redirect1: true
+  }) 
+  {this.renderRedirect()}
+  }
+
+
+
+  render() {
+   const result1=this.state.result;
+    
+      return (
+        
+        <form style={{width:'100%'}}>
+          
+          <div className='bdyCls'>
+        <div style={{}}>
+          <Button  onClick={ this.addPrice}>Price{this.renderRedirect()} </Button>
+        </div>
+        <Card className="text-center">
+  <Card.Header>Featured</Card.Header>
+  </Card>
+<Row>
+      <Col xs lg="3">
+      
+        <Button style={{ width: '13rem'}} class="col-lg-4" onClick={() => this.apple(15)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/apple.png`}></img><br/><b>Apple Rs-15/-</b><br/>
+          <Button variant="danger" onClick={this.subNew}>-</Button>
+            &nbsp;<b id="apple">{this.state.default}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew}>+</Button>
+        </Button>&nbsp;&nbsp;
+        </Col>
+      <Col xs lg="3"> 
+        <Button style={{width: '13rem'}} onClick={() => this.Apricot(17)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/apricot.png`}></img><br/><b>Apricot Rs-17/-</b><br/> 
+        <Button  variant="danger" onClick={this.subNew2}><b>-</b></Button>
+        &nbsp;<b id="apple">{this.state.default2}</b> &nbsp;
+        <Button  variant="success" onClick={this.addNew2}><b>+</b></Button>
+        </Button>&nbsp;&nbsp;
+        </Col>
+      <Col xs lg="3"> 
+        <Button style={{width: '13rem'}} onClick={() => this.Avocado(19)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/avocado.png`}></img><br/><b>Avocado Rs-19/-</b><br/> 
+          <Button variant="danger" onClick={this.subNew3}>-</Button>
+          &nbsp; <b id="apple">{this.state.default3}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew3}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      
+      <Col xs lg="3">
+        <Button style={{width: '13rem'}} onClick={() => this.Banana(6)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/banana.png`}></img><br/><b>Banana Rs-6/-</b><br/> 
+          <Button variant="danger" onClick={this.subNew4}>-</Button>
+          &nbsp;<b id="apple">{this.state.default4}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew4}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      </Row>
+      <Row>
+      <Col xs lg="3">        
+        <Button style={{width: '13rem'}} onClick={() => this.Blackberry(12)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/blackberry.png`}></img><br/><b>Blackberry Rs-12/-</b><br/> 
+          <Button variant="danger" onClick={this.subNew5}>-</Button>
+            &nbsp;<b id="apple">{this.state.default5}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew5}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      <Col xs lg="3">
+        <Button style={{width: '13rem'}} onClick={() => this.Blueberry(19)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/blueberry.png`}></img><br/><b>Blueberry Rs-19/-</b><br/> 
+          <Button variant="danger" onClick={this.subNew6}>-</Button>
+          &nbsp;<b id="apple">{this.state.default6}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew6}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      <Col xs lg="3">
+        <Button style={{width: '13rem'}} onClick={() => this.Boysenberry(21)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/boysenberry.png`}></img><br/><b>Boysenberry Rs-21/-</b><br/> 
+          <Button variant="danger" onClick={this.subNew7}>-</Button>
+          &nbsp;<b id="apple">{this.state.default7}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew7}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      <Col xs lg="3">  
+        <Button style={{width: '13rem'}} onClick={() => this.Cherry(3)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/cherry.png`}></img><br/><b>Cherry Rs-3/-</b><br/>
+          <Button variant="danger" onClick={this.subNew8}>-</Button>
+          &nbsp;<b id="apple">{this.state.default8}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew8}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      </Row>
+      <Row>
+      <Col xs lg="3">  
+        <Button style={{width: '13rem'}} onClick={() => this.Dragon(150)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/dragon.png`}></img><br/><b>Dragon Rs-150/-</b><br/>
+          <Button variant="danger" onClick={this.subNew9}>-</Button>
+          &nbsp;<b id="dragon">{this.state.default9}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew9}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      <Col xs lg="3">  
+        <Button style={{width: '13rem'}} onClick={() => this.Grape(80)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/grape.png`}></img><br/><b>Grape Rs-80/-</b><br/>
+          <Button variant="danger" onClick={this.subNew10}>-</Button>
+          &nbsp;<b id="grape">{this.state.default10}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew10}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      <Col xs lg="3">  
+        <Button style={{width: '13rem'}} onClick={() => this.Jackfruit(100)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/jackfruit.png`}></img><br/><b>Jackfruit Rs-100/-</b><br/>
+          <Button variant="danger" onClick={this.subNew11}>-</Button>
+          &nbsp;<b id="jackfruit">{this.state.default11}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew11}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      <Col xs lg="3">  
+        <Button style={{width: '13rem'}} onClick={() => this.Orange(60)}>
+        <img class="imgcls" src={`${process.env.PUBLIC_URL}/images/orange.png`}></img><br/><b>Orange Rs-60/-</b><br/>
+          <Button variant="danger" onClick={this.subNew12}>-</Button>
+          &nbsp;<b id="orange">{this.state.default12}</b> &nbsp;
+          <Button variant="success" onClick={this.addNew12}>+</Button>
+        </Button>&nbsp;&nbsp;
+      </Col>
+      </Row>
+      </div>
+         </form>
+         
+      );
+    }
+}
+
+export default Fruitcart;
+
+
+
+
