@@ -1,0 +1,118 @@
+
+import React from "react";
+import {  Button, Form,InputGroup } from 'react-bootstrap';
+//import { BrowserRouter, Routes ,Route } from 'react-router-dom';
+//import { Route,Router,Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import NewOnePage from  './newOnePage';
+import SideMenu from  '../header/sideMenu';
+import Header from  '../header/header';
+import Fruits from "./Fruits";
+
+var newRelcards=[
+  {id:'1',fruitname:'Apple',fruit:'Apple Rs-15/-',price:15,img:'/images/apple.png',count:0},
+  {id:'2',fruitname:'Apricot',fruit:'Apricot Rs-21/-',price:21,img:'/images/apricot.png',count:0},
+  {id:'3',fruitname:'avocado',fruit:'avocado Rs-40/-',price:40,img:'/images/avocado.png',count:0},
+  {id:'4',fruitname:'banana',fruit:'banana Rs-25/-',price:25,img:'/images/banana.png',count:0},
+  {id:'5',fruitname:'blackberry',fruit:'blackberry Rs-44/-',price:44,img:'/images/blackberry.png',count:0},
+  {id:'6',fruitname:'blueberry',fruit:'blueberry Rs-42/-',price:42,img:'/images/blueberry.png',count:0},
+  {id:'7',fruitname:'boysenberry',fruit:'boysenberry Rs-31/-',price:31,img:'/images/boysenberry.png',count:0},
+  {id:'8',fruitname:'cherry',fruit:'cherry Rs-15/-',price:15,img:'/images/cherry.png',count:0},
+  {id:'9',fruitname:'dragon',fruit:'dragon Rs-120/-',price:120,img:'/images/dragon.png',count:0},
+  {id:'10',fruitname:'grape',fruit:'grape Rs-80/-',price:80,img:'/images/grape.png',count:0},
+  {id:'11',fruitname:'jackfruit',fruit:'jackfruit Rs-200/-',price:200,img:'/images/jackfruit.png',count:0},
+  {id:'12',fruitname:'orange',fruit:'Orange Rs-90/-',price:90,img:'/images/orange.png',count:0}
+];
+
+class FruitcartMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+     num1: 0,
+     default: 0,
+     result: 0,
+     frtArry:newRelcards
+    }
+   
+  }
+  
+  addNew = (e,i) => {
+    {this.setArry(i,true)}
+  }
+   
+  subNew = (e,i) => {
+    {this.setArry(i,false)}
+  }
+   
+  totPrice = () => {
+    var items = [...this.state.frtArry];
+    var total=0;
+    var total1=0;
+    items.map((e1,index)=> 
+      {
+        total1=e1.price*e1.count;
+        total=total+total1;
+      }
+    )
+    this.setState({result: total});
+  }
+  setArry = (ss,bool) => {
+    var items = [...this.state.frtArry];
+    var item = {...items[ss]};
+    var num=item.count;
+    if(bool===true){
+      num = num+1;
+    }else{
+      if(num!==0){
+        num = num-1;
+      }
+    }
+    item.count=num;
+    items[ss] = item;
+    this.setState({frtArry:items});
+  }
+  render() {
+      return (
+        <form style={{width:'100%'}}>
+          {/* <Header/>
+          <SideMenu /> */}
+          <div className='bdyCls'>
+            <div style={{}}>
+                <Button style={{width:'56px',height: '46px'}}  onClick={this.totPrice}>Price </Button><br/>
+               {this.state.result===0?"": "Total Price is "+this.state.result}  
+            </div>
+            
+            <Row>
+              <Col xs lg="3">
+               
+               {/* { newRelcards.map(el=> <Fruits values={el} key={el.id}/> )} */}
+
+                { this.state.frtArry.map((e1,index)=> {
+                  return (
+                    <Button id={index} style={{ width: '13rem',margin: '0px 26px 23px 0px'}} class="col-lg-4">
+                      <img class="imgcls" src={`${process.env.PUBLIC_URL}${e1.img}`}></img><br/><b>{e1.fruit}</b><br/>
+                      <Button variant="danger" onClick={() => this.subNew(e1.price,index)}>-</Button>
+                        &nbsp;<b id="apple">{e1.count}</b> &nbsp;
+                      <Button variant="success" onClick={() => this.addNew(e1.price,index)}>+</Button>
+                    </Button> 
+                  )
+                })}
+
+              </Col>
+            </Row>
+          </div>
+        </form> 
+      );
+    }
+}
+export default FruitcartMap;
+
+
+
+
+
